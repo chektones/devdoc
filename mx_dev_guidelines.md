@@ -114,6 +114,7 @@ An entity should have only one event handler per event (before/after – create/
 ### Microflow variables
 Variable names should be short yet meaningful – starting with lower case prefix var (or pvar for a variable used as an input parameter of a microflow)– followed by a name in mixed case with the first letter of each internal word capitalized. The choice of a variable name should be mnemonic- that is, designed to indicate to the casual observer the intent of its use. 
 Important is that the name of a variable should be obvious enough to give a developer an idea on the type. There will always be some exceptions to this but some examples are given below.
+
 | Variable name | Type logic |
 | --- | --- |
 | `varDealType` or `varDealStatus` | The name of an enumeration should be descriptive enough for a developer to know that it’s a variable of this type |
