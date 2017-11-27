@@ -18,6 +18,9 @@
             - [Event microflows](#event-microflows)
         - [Microflow variables](#microflow-variables)
         - [Microflow references](#microflow-references)
+        - [Labels and annotations](#labels-and-annotations)
+            - [Exclusive splits](#exclusive-splits)
+            - [Annotations](#annotations)
 - [Commit descriptions](#commit-descriptions)
 - [SVN release strategy](#svn-release-strategy)
     - [Main line](#main-line)
@@ -142,6 +145,22 @@ Because a microflow can contain multiple references pointing to the same entity,
 
 In some cases specific to the TM – ie `Party` is a `Company` or a `Counterparty` we can use these specific names, but preferably the entity name is always included.
 
+### Labels and annotations
+A microflow consists of a workflow decision type diagram taking care of the flow logic. 
+
+#### Exclusive splits
+An element that makes a choice based on a condition and follows (exactly) one of the outgoing sequence flows. This can be based on a true/false outcome or a type selection based on an enumeration. By default the label of an exclusive split is empty. To improve readability of a microflow it is required to add a short but descriptive label. Best practice related to the actual expression of the exclusive split is to keep the amount of expressions for one exclusive split to a minimum - preferably only 1 per split.
+
+![boolean exclusive split label](images/exclusive_split_label.png)
+
+_Boolean split example_
+
+![type exclusive split label](images/exclusive_split_label_type.png)
+
+_Type split example_
+
+#### Annotations
+A flow in a microflow for more complex functionality can become difficult to understand. For example the input parameters expected by the microflow might not be named intuitively enough for a developer to understand. Another example is some business logic might not translate into logic programmatic flows and could lead to a different developer not understanding why something is developed in a specific way. To resolve these kinds of problems the use of annotations can be very helpful. An annotiation is a way of adding comments to a microflow. Annotations can be specified microflow wide or connected to specific activities/elements in a microflow by dragging from any of the connector points of the annotation element to the related microflow element.
 
 # Commit descriptions
 All changes made to the TM Mendix model are committed to the Mendix teamserver svn. Most of the time commits are related to stories that are part of a sprint. Usually one story consists of several commits. To make it easier to identify individual changes a convention for commit messages is required.
